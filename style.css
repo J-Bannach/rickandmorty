@@ -6,3 +6,47 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-text-color: #f4a261;
+  --secondary-text-color: #e9c46a;
+  --primary-background-color: #264653;
+  --secondary-background-color: #2a9d8f;
+  --accent-color: #e76f51;
+}
+
+body {
+  margin: 0;
+}
+
+.mainPage {
+  height: 100vh;
+  background-color: #2a9d8f;
+}
+
+.hero {
+  display: grid;
+  background-color: var(--primary-background-color);
+}
+
+h1 {
+  color: var(--primary-text-color);
+  justify-self: center;
+}
+
+.resultsSection {
+  display: grid;
+  background-color: var(--secondary-background-color);
+}
+
+.footerSection {
+  display: grid;
+  background-color: var(--primary-background-color);
+  color: var(--secondary-text-color);
+}
