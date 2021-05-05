@@ -40,9 +40,16 @@ h1 {
   justify-self: center;
 }
 
+.input {
+  border-radius: 1em;
+  justify-self: center;
+  width: auto;
+}
+
 .resultsSection {
   display: grid;
   background-color: var(--secondary-background-color);
+  color: var(--secondary-text-color);
 }
 
 .footerSection {
