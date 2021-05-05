@@ -1,29 +1,19 @@
 import "./style.css";
 import { createElement } from "./utils/elements";
 import { createCharacter } from "./components/character";
+import { getCharacters } from "./utils/api";
 
-const characters = [
-  {
-    imgSrc: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-    name: "Morty Smith",
-    status: "Alive",
-    species: "Human",
-    origin: {
-      name: "Earth",
-      url: "https://rickandmortyapi.com/api/location/20",
-    },
-  },
-  {
-    imgSrc: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-    name: "Rick Sanchez",
-    status: "Alive",
-    species: "Human",
-    origin: {
-      name: "Earth",
-      url: "https://rickandmortyapi.com/api/location/20",
-    },
-  },
-];
+const characterSection = createElement("section", {
+  className: "resultsSection",
+});
+
+getCharacters().then((characters) => {
+  const characterElements = characters.map(createCharacter);
+  characterSection.append(...characterElements);
+
+  console.log(characters.results);
+});
+// createCharacter.map(data.results);
 
 const mainElement = createElement("main", {
   className: "mainPage",
@@ -35,10 +25,12 @@ const mainElement = createElement("main", {
         createElement("input", { placeholder: "search name" }),
       ],
     }),
-    createElement("section", {
-      className: "resultsSection",
-      children: characters.map(createCharacter),
-    }),
+    characterSection,
+    // createElement("section", {
+    //   className: "resultsSection",
+    //   // children: characters.map(createCharacter),
+    // }),
+
     createElement("footer", {
       className: "footerSection",
       children: [
